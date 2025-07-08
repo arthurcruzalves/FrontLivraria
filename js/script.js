@@ -398,3 +398,27 @@ function carregar_produtos_carrinho(){
 
 } 
 
+//nome do localstorge para o usuário logado
+let usuario_logado = "usuario_logado"
+
+function efetuarlogin(){
+    const usuario = document.getElementById("txtusuario")
+    const senha = document.getElementById("txtpassword")
+
+    fetch("http://127.0.0.1:5000/api/v1/usuario/login",{
+        method:"POST",
+        headers:{
+            "accept":"application/json",
+            "content-type":"application/json"
+        },
+        body:JSON.stringify({
+            usuario:usuario.value,
+            senha:senha.value
+        })
+    })
+    .then((rs)=>rs.json())
+    .then((dados)=>{
+       window.localStorage.setItem
+    })
+    .catch((erro)=>console.error(erro))
+}
